@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Edukatif Matematika Kelas VI</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#e3f2fd,#e8f5e9);
+    color:#17324d;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+/* LOGIN */
+
+.login{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:20px;
+}
+
+.login .card{
+    max-width:450px;
+    width:100%;
+    text-align:center;
+}
+
+.logo{
+    font-size:65px;
+}
+
+h1,h2{
+    color:#1261a0;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+    border:2px solid #d7e1ea;
+    border-radius:12px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:150px;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    padding:13px 18px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.primary{
+    background:#1976d2;
+    color:white;
+}
+
+.success{
+    background:#00a86b;
+    color:white;
+}
+
+.warning{
+    background:#f59e0b;
+    color:white;
+}
+
+.gray{
+    background:#e5e7eb;
+    color:#243447;
+}
+
+/* HEADER */
+
+.header{
+    background:#1261a0;
+    color:white;
+    padding:17px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.header small{
+    display:block;
+    margin-top:5px;
+    opacity:.9;
+}
+
+/* BADGE */
+
+.badges{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.badge{
+    background:#e8f1fb;
+    padding:8px 13px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* PROGRESS */
+
+.progress{
+    width:100%;
+    height:13px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    width:0%;
+    background:#00a86b;
+    transition:.3s;
+}
+
+/* QUESTION */
+
+.question{
+    font-size:21px;
+    font-weight:bold;
+    line-height:1.6;
+    margin:20px 0;
+}
+
+.option{
+    display:block;
+    padding:14px;
+    margin:10px 0;
+    border:2px solid #dce5ec;
+    border-radius:13px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#f0f8ff;
+    border-color:#1976d2;
+}
+
+.option input{
+    width:auto;
+    margin-right:8px;
+}
+
+/* NAV */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:25px;
+}
+
+/* MATCH */
+
+.match{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    align-items:center;
+    margin:12px 0;
+}
+
+/* RESULT */
+
+.result{
+    text-align:center;
+}
+
+.score{
+    font-size:75px;
+    font-weight:bold;
+    color:#00a86b;
+}
+
+.stars{
+    font-size:42px;
+}
+
+.note{
+    background:#fff8df;
+    border-left:5px solid #f59e0b;
+    padding:14px;
+    border-radius:8px;
+    margin-top:15px;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,
+td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+th{
+    background:#eaf4ff;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#567;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .header{
+        align-items:flex-start;
+    }
+
+    .header .user{
+        display:none;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .question{
+        font-size:18px;
+    }
+
+    .match{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        flex-direction:column;
+    }
+
+    .nav button{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<section id="login" class="login">
+
+<div class="card">
+
+<div class="logo">
+🧮🎮
+</div>
+
+<h1>
+GAME EDUKATIF MATEMATIKA
+</h1>
+
+<h3>
+KELAS VI SD
+</h3>
+
+<p>
+<b>Perkalian Pecahan & Pembagian Pecahan</b>
+</p>
+
+<input
+id="nama"
+placeholder="Masukkan Nama Siswa">
+
+<input
+id="nipd"
+placeholder="Masukkan NIPD">
+
+<button
+class="primary"
+style="width:100%"
+onclick="mulaiGame()">
+
+🚀 MULAI GAME
+
+</button>
+
+<p
+id="error"
+style="color:red;font-weight:bold">
+</p>
+
+<div class="note">
+
+💡 Kerjakan semua soal dengan teliti.
+<br>
+Gunakan cara menghitung pecahan yang benar.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= APLIKASI ================= -->
+
+<div
+id="app"
+class="hidden">
+
+<header class="header">
+
+<div>
+
+<b>
+🧮 GAME MATEMATIKA KELAS VI
+</b>
+
+<small>
+Perkalian Pecahan & Pembagian Pecahan
+</small>
+
+</div>
+
+<div
+id="userInfo"
+class="user">
+</div>
+
+<button
+class="gray"
+onclick="location.reload()">
+
+Keluar
+
+</button>
+
+</header>
+
+
+<main class="container">
+
+<!-- INFORMASI -->
+
+<div class="card">
+
+<div class="badges">
+
+<span class="badge">
+🎯 50 Soal
+</span>
+
+<span class="badge">
+🟢 PG 25
+</span>
+
+<span class="badge">
+🔵 PG Kompleks 5
+</span>
+
+<span class="badge">
+🟣 Menjodohkan 5
+</span>
+
+<span class="badge">
+🟡 Isian 10
+</span>
+
+<span class="badge">
+🔴 Uraian 5
+</span>
+
+</div>
+
+<b id="progressText">
+</b>
+
+<div class="progress">
+
+<div
+id="progress"
+class="fill">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SOAL -->
+
+<div
+id="quiz"
+class="card">
+</div>
+
+
+<!-- HASIL -->
+
+<div
+id="result"
+class="card result hidden">
+</div>
+
+</main>
+
+
+<div class="footer">
+
+🌟 Belajar Matematika dengan Bermain
+<br>
+Kelas VI SD
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   DATA SOAL
+================================================== */
+
+const SOAL = [
+
+/* =========================
+   PILIHAN GANDA 25
+========================= */
+
+{
+jenis:"PG",
+soal:"Hasil dari 2/3 × 3/4 adalah ...",
+pilihan:["1/2","2/7","5/12","3/8"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 3/5 × 10/9 adalah ...",
+pilihan:["2/3","1/3","5/9","6/5"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 4/7 × 14/3 adalah ...",
+pilihan:["8/3","4/3","2/3","16/21"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 5/6 × 3/10 adalah ...",
+pilihan:["1/4","1/3","1/2","3/5"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 7/8 × 4/7 adalah ...",
+pilihan:["1/2","3/4","7/8","4/7"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 2/5 × 15/8 adalah ...",
+pilihan:["3/4","2/3","5/8","15/20"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 3/4 ÷ 2/5 adalah ...",
+pilihan:["15/8","6/20","3/10","8/15"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 5/6 ÷ 10/9 adalah ...",
+pilihan:["3/4","1/2","4/5","5/9"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 2/3 ÷ 4/9 adalah ...",
+pilihan:["3/2","8/27","1/2","2/9"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 7/8 ÷ 7/16 adalah ...",
+pilihan:["2","1/2","7/2","16/8"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 3/5 ÷ 9/10 adalah ...",
+pilihan:["2/3","3/2","1/3","5/6"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 4/9 ÷ 2/3 adalah ...",
+pilihan:["2/3","8/27","3/2","1/3"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 1 1/2 × 2/3 adalah ...",
+pilihan:["1","2","3/4","1 1/3"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 2 1/4 × 4/9 adalah ...",
+pilihan:["1","2","3/2","9/4"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 1 2/3 ÷ 5/6 adalah ...",
+pilihan:["2","1 1/2","5/2","10/9"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 2 1/2 ÷ 5/8 adalah ...",
+pilihan:["4","3","5/4","2"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Rina memakan 2/5 bagian dari 3/4 kue. Bagian kue yang dimakan Rina adalah ...",
+pilihan:["3/10","6/20","1/2","5/9"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"3/4 kg tepung dibagi ke kantong masing-masing 1/8 kg. Banyak kantong adalah ...",
+pilihan:["6","5","8","4"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Pita 2/3 m dipotong masing-masing 1/6 m. Banyak potongan adalah ...",
+pilihan:["4","3","2","6"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"3/5 bagian dari 40 halaman adalah ...",
+pilihan:["24","20","25","15"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 5/8 × 16/15 adalah ...",
+pilihan:["2/3","5/15","8/15","1/2"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Hasil dari 9/10 ÷ 3/5 adalah ...",
+pilihan:["3/2","27/50","1/2","6/5"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Jika 2/7 × x = 4/7, nilai x adalah ...",
+pilihan:["2","1/2","4","7/2"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Jika x ÷ 3/4 = 2, nilai x adalah ...",
+pilihan:["3/2","8/3","2 3/4","1/2"],
+jawaban:0
+},
+
+{
+jenis:"PG",
+soal:"Bentuk paling sederhana dari 6/8 × 4/9 adalah ...",
+pilihan:["1/3","2/3","3/4","4/9"],
+jawaban:0
+},
+
+
+/* =========================
+   PILIHAN GANDA KOMPLEKS 5
+========================= */
+
+{
+jenis:"PGK",
+soal:"Pilih semua operasi yang hasilnya 1.",
+pilihan:[
+"2/3 × 3/2",
+"3/4 ÷ 3/4",
+"5/6 × 6/5",
+"2/5 ÷ 2/5"
+],
+jawaban:[0,1,2,3]
+},
+
+{
+jenis:"PGK",
+soal:"Pilih semua hasil yang lebih besar dari 1.",
+pilihan:[
+"3/4 ÷ 1/2",
+"5/6 × 3/2",
+"2/3 × 3/4",
+"7/8 ÷ 1/4"
+],
+jawaban:[0,1,3]
+},
+
+{
+jenis:"PGK",
+soal:"Pilih semua operasi yang hasilnya dapat disederhanakan.",
+pilihan:[
+"2/3 × 3/4",
+"4/5 × 5/8",
+"3/7 × 7/9",
+"5/6 × 2/5"
+],
+jawaban:[0,1,2,3]
+},
+
+{
+jenis:"PGK",
+soal:"Pilih semua pernyataan yang benar.",
+pilihan:[
+"Membagi pecahan sama dengan mengalikan dengan kebalikannya.",
+"2/3 ÷ 4/5 = 5/6.",
+"3/4 × 2/3 = 1/2.",
+"1/2 ÷ 1/4 = 2."
+],
+jawaban:[0,1,2,3]
+},
+
+{
+jenis:"PGK",
+soal:"Pilih semua operasi yang hasilnya kurang dari 1.",
+pilihan:[
+"1/2 × 2/3",
+"3/4 × 2/5",
+"5/6 ÷ 5/3",
+"2/3 ÷ 4/9"
+],
+jawaban:[0,1,2]
+},
+
+
+/* =========================
+   MENJODOHKAN 5
+========================= */
+
+{
+jenis:"MATCH",
+soal:"Jodohkan operasi dengan hasil yang tepat.",
+pasangan:[
+["2/3 × 3/4","1/2"],
+["3/5 × 5/6","1/2"],
+["4/7 ÷ 2/7","2"],
+["5/8 ÷ 5/16","2"],
+["1/2 × 4/5","2/5"]
+]
+},
+
+{
+jenis:"MATCH",
+soal:"Jodohkan operasi dengan hasilnya.",
+pasangan:[
+["3/4 ÷ 1/2","3/2"],
+["2/5 × 5/4","1/2"],
+["5/6 ÷ 5/12","2"],
+["7/8 × 4/7","1/2"],
+["3/10 ÷ 3/5","1/2"]
+]
+},
+
+{
+jenis:"MATCH",
+soal:"Jodohkan pecahan campuran dengan hasil operasi.",
+pasangan:[
+["1 1/2 × 2/3","1"],
+["2 1/4 × 4/9","1"],
+["1 2/3 ÷ 5/6","2"],
+["2 1/2 ÷ 5/8","4"],
+["1 1/4 × 4/5","1"]
+]
+},
+
+{
+jenis:"MATCH",
+soal:"Jodohkan soal cerita dengan jawabannya.",
+pasangan:[
+["1/2 dari 3/4 kg","3/8 kg"],
+["3/4 kg dibagi 1/4 kg","3 bagian"],
+["2/3 m dibagi 1/6 m","4 bagian"],
+["3/5 dari 20","12"],
+["2/5 dari 15","6"]
+]
+},
+
+{
+jenis:"MATCH",
+soal:"Jodohkan operasi dengan bentuk paling sederhana.",
+pasangan:[
+["6/8 × 2/3","1/2"],
+["9/10 ÷ 3/5","3/2"],
+["4/9 ÷ 2/3","2/3"],
+["5/8 × 8/15","1/3"],
+["7/12 × 6/7","1/2"]
+]
+},
+
+
+/* =========================
+   ISIAN SINGKAT 10
+========================= */
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 1/2 × 3/4 adalah ...",
+jawaban:["3/8"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 2/3 ÷ 1/6 adalah ...",
+jawaban:["4"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 5/8 × 4/5 adalah ...",
+jawaban:["1/2"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 3/4 ÷ 3/8 adalah ...",
+jawaban:["2"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 2/5 × 10 adalah ...",
+jawaban:["4"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 3/5 ÷ 3 adalah ...",
+jawaban:["1/5"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 1 1/2 × 4/3 adalah ...",
+jawaban:["2"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 2 2/3 ÷ 4/3 adalah ...",
+jawaban:["2"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 7/9 × 3/7 adalah ...",
+jawaban:["1/3"]
+},
+
+{
+jenis:"ISIAN",
+soal:"Hasil dari 4/5 ÷ 8/15 adalah ...",
+jawaban:["3/2","1 1/2"]
+},
+
+
+/* =========================
+   URAIAN 5
+========================= */
+
+{
+jenis:"URAIAN",
+soal:"Hitunglah 3/4 × 2/5. Tuliskan langkah-langkah pengerjaanmu."
+},
+
+{
+jenis:"URAIAN",
+soal:"Hitunglah 5/6 ÷ 2/3. Jelaskan mengapa pecahan pembagi harus dibalik."
+},
+
+{
+jenis:"URAIAN",
+soal:"Ibu memiliki 2 1/2 kg gula. Gula dimasukkan ke kantong masing-masing 1/4 kg. Berapa kantong yang dapat diisi? Jelaskan."
+},
+
+{
+jenis:"URAIAN",
+soal:"Sebuah resep membutuhkan 3/4 liter susu untuk 1 porsi. Jika dibuat 2/3 porsi resep, berapa liter susu yang diperlukan? Tunjukkan perhitungan."
+},
+
+{
+jenis:"URAIAN",
+soal:"Buatlah satu contoh soal cerita yang menggunakan operasi pembagian pecahan, kemudian selesaikan."
+}
+
+];
+
+
+/* ==================================================
+   VARIABEL
+================================================== */
+
+let nomor=0;
+let jawaban=[];
+let siswa=null;
+
+
+/* ==================================================
+   ESCAPE HTML
+================================================== */
+
+function aman(text){
+
+    return String(text ?? "")
+    .replace(/[&<>"']/g,function(m){
+
+        return {
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[m];
+
+    });
+
+}
+
+
+/* ==================================================
+   MULAI GAME
+================================================== */
+
+function mulaiGame(){
+
+    let nama=document.getElementById("nama").value.trim();
+    let nipd=document.getElementById("nipd").value.trim();
+
+    if(nama===""){
+
+        document.getElementById("error").textContent=
+        "Silakan masukkan nama siswa.";
+
+        return;
+    }
+
+    siswa={
+        nama:nama.toUpperCase(),
+        nipd:nipd || "-"
+    };
+
+    jawaban=
+    Array(SOAL.length).fill(null);
+
+    document
+    .getElementById("login")
+    .classList.add("hidden");
+
+    document
+    .getElementById("app")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("userInfo")
+    .innerHTML=
+    "<b>"+aman(siswa.nama)+"</b><br>NIPD: "+aman(siswa.nipd);
+
+    tampilSoal();
+
+}
+
+
+/* ==================================================
+   SIMPAN JAWABAN
+================================================== */
+
+function simpanJawaban(){
+
+    let soal=SOAL[nomor];
+
+
+    if(soal.jenis==="PG"){
+
+        let x=
+        document.querySelector(
+            'input[name="pg"]:checked'
+        );
+
+        jawaban[nomor]=
+        x ? Number(x.value) : null;
+
+    }
+
+
+    else if(soal.jenis==="PGK"){
+
+        jawaban[nomor]=
+        [...document.querySelectorAll(
+            'input[name="pgk"]:checked'
+        )]
+        .map(x=>Number(x.value));
+
+    }
+
+
+    else if(soal.jenis==="MATCH"){
+
+        jawaban[nomor]=
+        soal.pasangan.map(function(_,i){
+
+            let x=
+            document.getElementById("match"+i);
+
+            return x && x.value!==""
+            ? Number(x.value)
+            : null;
+
+        });
+
+    }
+
+
+    else if(soal.jenis==="ISIAN"){
+
+        jawaban[nomor]=
+        document.getElementById("isian")
+        ?.value.trim() || "";
+
+    }
+
+
+    else if(soal.jenis==="URAIAN"){
+
+        jawaban[nomor]=
+        document.getElementById("uraian")
+        ?.value.trim() || "";
+
+    }
+
+}
+
+
+/* ==================================================
+   TAMPIL SOAL
+================================================== */
+
+function tampilSoal(){
+
+    let soal=SOAL[nomor];
+
+    let namaJenis={
+
+        PG:"Pilihan Ganda",
+
+        PGK:"Pilihan Ganda Kompleks",
+
+        MATCH:"Menjodohkan",
+
+        ISIAN:"Isian Singkat",
+
+        URAIAN:"Uraian"
+
+    };
+
+
+    let html=
+
+    "<div class='badges'>"+
+    "<span class='badge'>Soal "+
+    (nomor+1)+
+    " / "+
+    SOAL.length+
+    "</span>"+
+
+    "<span class='badge'>"+
+    namaJenis[soal.jenis]+
+    "</span>"+
+    "</div>";
+
+
+    html+=
+    "<div class='question'>"+
+    aman(soal.soal)+
+    "</div>";
+
+
+    /* PILIHAN GANDA */
+
+    if(soal.jenis==="PG"){
+
+        soal.pilihan.forEach(function(p,i){
+
+            let checked=
+            jawaban[nomor]===i
+            ? "checked"
+            : "";
+
+            html+=
+
+            "<label class='option'>"+
+
+            "<input type='radio' "+
+            "name='pg' "+
+            "value='"+i+"' "+
+            checked+
+            "> "+
+
+            "<b>"+
+            String.fromCharCode(65+i)+
+            ".</b> "+
+
+            aman(p)+
+
+            "</label>";
+
+        });
+
+    }
+
+
+    /* PILIHAN GANDA KOMPLEKS */
+
+    if(soal.jenis==="PGK"){
+
+        html+=
+        "<p><b>💡 Pilih semua jawaban yang benar.</b></p>";
+
+        soal.pilihan.forEach(function(p,i){
+
+            let checked=
+            Array.isArray(jawaban[nomor]) &&
+            jawaban[nomor].includes(i)
+            ? "checked"
+            : "";
+
+            html+=
+
+            "<label class='option'>"+
+
+            "<input type='checkbox' "+
+            "name='pgk' "+
+            "value='"+i+"' "+
+            checked+
+            "> "+
+
+            "<b>"+
+            String.fromCharCode(65+i)+
+            ".</b> "+
+
+            aman(p)+
+
+            "</label>";
+
+        });
+
+    }
+
+
+    /* MENJODOHKAN */
+
+    if(soal.jenis==="MATCH"){
+
+        let lama=
+        jawaban[nomor] || [];
+
+        soal.pasangan.forEach(function(p,i){
+
+            html+=
+
+            "<div class='match'>"+
+
+            "<b>"+
+            aman(p[0])+
+            "</b>"+
+
+            "<select id='match"+i+"'>"+
+
+            "<option value=''>-- Pilih Jawaban --</option>";
+
+            soal.pasangan.forEach(function(z,j){
+
+                html+=
+
+                "<option value='"+j+"' "+
+                (lama[i]===j?"selected":"")+
+                ">"+
+
+                aman(z[1])+
+
+                "</option>";
+
+            });
+
+            html+="</select></div>";
+
+        });
+
+    }
+
+
+    /* ISIAN */
+
+    if(soal.jenis==="ISIAN"){
+
+        html+=
+
+        "<input id='isian' "+
+        "placeholder='Ketik jawabanmu...' "+
+        "value='"+aman(jawaban[nomor]||"")+"'>";
+
+    }
+
+
+    /* URAIAN */
+
+    if(soal.jenis==="URAIAN"){
+
+        html+=
+
+        "<textarea id='uraian' "+
+        "placeholder='Tuliskan langkah-langkah penyelesaianmu...'>"+
+        aman(jawaban[nomor]||"")+
+        "</textarea>";
+
+    }
+
+
+    /* NAVIGASI */
+
+    html+=
+
+    "<div class='nav'>"+
+
+    "<button class='gray' "+
+    "onclick='sebelumnya()' "+
+    (nomor===0?"disabled":"")+
+    ">← Sebelumnya</button>";
+
+
+    if(nomor<SOAL.length-1){
+
+        html+=
+
+        "<button class='primary' "+
+        "onclick='berikutnya()'>"+
+        "Berikutnya →"+
+        "</button>";
+
+    }
+
+    else{
+
+        html+=
+
+        "<button class='success' "+
+        "onclick='selesai()'>"+
+        "🏆 Selesai & Lihat Nilai"+
+        "</button>";
+
+    }
+
+
+    html+="</div>";
+
+
+    document
+    .getElementById("quiz")
+    .innerHTML=html;
+
+
+    document
+    .getElementById("progressText")
+    .textContent=
+    "Progress: "+
+    (nomor+1)+
+    " / "+
+    SOAL.length;
+
+
+    document
+    .getElementById("progress")
+    .style.width=
+    ((nomor+1)/SOAL.length*100)+"%";
+
+}
+
+
+/* ==================================================
+   NAVIGASI
+================================================== */
+
+function berikutnya(){
+
+    simpanJawaban();
+
+    nomor++;
+
+    tampilSoal();
+
+    window.scrollTo(0,0);
+
+}
+
+
+function sebelumnya(){
+
+    simpanJawaban();
+
+    nomor--;
+
+    tampilSoal();
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* ==================================================
+   CEK JAWABAN
+================================================== */
+
+function normalisasi(teks){
+
+    return String(teks||"")
+    .toLowerCase()
+    .replace(/\s+/g,"")
+    .replace(/,/g,"/");
+
+}
+
+
+function cekBenar(soal,jawab){
+
+    /* PG */
+
+    if(soal.jenis==="PG"){
+
+        return jawab===soal.jawaban;
+
+    }
+
+
+    /* PG KOMPLEKS */
+
+    if(soal.jenis==="PGK"){
+
+        if(!Array.isArray(jawab))
+            return false;
+
+        if(jawab.length!==soal.jawaban.length)
+            return false;
+
+        return jawab.every(function(x){
+
+            return soal.jawaban.includes(x);
+
+        });
+
+    }
+
+
+    /* MENJODOHKAN */
+
+    if(soal.jenis==="MATCH"){
+
+        if(!Array.isArray(jawab))
+            return false;
+
+        if(jawab.length!==soal.pasangan.length)
+            return false;
+
+        return jawab.every(function(x,i){
+
+            return x===i;
+
+        });
+
+    }
+
+
+    /* ISIAN */
+
+    if(soal.jenis==="ISIAN"){
+
+        return soal.jawaban.some(function(x){
+
+            return normalisasi(jawab)===
+                   normalisasi(x);
+
+        });
+
+    }
+
+
+    return false;
+
+}
+
+
+/* ==================================================
+   SELESAI
+================================================== */
+
+function selesai(){
+
+    simpanJawaban();
+
+    let benar=0;
+
+    let jumlahObjektif=0;
+
+
+    SOAL.forEach(function(soal,i){
+
+        if(soal.jenis!=="URAIAN"){
+
+            jumlahObjektif++;
+
+            if(
+                cekBenar(
+                    soal,
+                    jawaban[i]
+                )
+            ){
+
+                benar++;
+
+            }
+
+        }
+
+    });
+
+
+    /*
+      45 SOAL OBJEKTIF
+      25 PG
+      5 PGK
+      5 MATCH
+      10 ISIAN
+    */
+
+    let nilai=
+    Math.round(
+        benar/jumlahObjektif*100
+    );
+
+
+    let bintang;
+
+    if(nilai>=90)
+        bintang="⭐⭐⭐⭐⭐";
+
+    else if(nilai>=80)
+        bintang="⭐⭐⭐⭐";
+
+    else if(nilai>=70)
+        bintang="⭐⭐⭐";
+
+    else if(nilai>=60)
+        bintang="⭐⭐";
+
+    else
+        bintang="⭐";
+
+
+    document
+    .getElementById("quiz")
+    .classList.add("hidden");
+
+
+    let result=
+    document.getElementById("result");
+
+    result.classList.remove("hidden");
+
+
+    result.innerHTML=
+
+    "<div class='stars'>"+
+    bintang+
+    "</div>"+
+
+    "<h2>🎉 GAME SELESAI!</h2>"+
+
+    "<div class='score'>"+
+    nilai+
+    "</div>"+
+
+    "<p><b>Nilai Objektif</b></p>"+
+
+    "<p>"+
+    "<b>"+aman(siswa.nama)+"</b><br>"+
+    "NIPD: "+aman(siswa.nipd)+"<br>"+
+    "Jawaban benar: <b>"+
+    benar+
+    " dari "+
+    jumlahObjektif+
+    "</b><br>"+
+    "5 soal uraian perlu diperiksa guru."+
+    "</p>"+
+
+    "<div class='note'>"+
+    "<b>📌 Catatan:</b><br>"+
+    "Nilai otomatis dihitung dari 45 soal objektif. "+
+    "Soal uraian dapat diperiksa dan dinilai oleh guru."+
+    "</div>"+
+
+    "<br>"+
+
+    "<button class='success' "+
+    "onclick='lihatRekap()'>"+
+    "📋 Lihat Rekap Jawaban"+
+    "</button> "+
+
+    "<button class='gray' "+
+    "onclick='location.reload()'>"+
+    "🔄 Ulangi Game"+
+    "</button>"+
+
+    "<div id='rekap'></div>";
+
+}
+
+
+/* ==================================================
+   REKAP
+================================================== */
+
+function lihatRekap(){
+
+    let html=
+
+    "<h3>📊 REKAP HASIL</h3>"+
+
+    "<table>"+
+
+    "<tr>"+
+    "<th>No</th>"+
+    "<th>Jenis</th>"+
+    "<th>Status</th>"+
+    "</tr>";
+
+
+    SOAL.forEach(function(soal,i){
+
+        let status;
+
+
+        if(soal.jenis==="URAIAN"){
+
+            status="✏️ Perlu diperiksa guru";
+
+        }
+
+        else{
+
+            status=
+            cekBenar(
+                soal,
+                jawaban[i]
+            )
+            ? "✅ Benar"
+            : "❌ Salah";
+
+        }
+
+
+        html+=
+
+        "<tr>"+
+
+        "<td>"+(i+1)+"</td>"+
+
+        "<td>"+soal.jenis+"</td>"+
+
+        "<td>"+status+"</td>"+
+
+        "</tr>";
+
+    });
+
+
+    html+="</table>";
+
+
+    document
+    .getElementById("rekap")
+    .innerHTML=html;
+
+}
+
+</script>
+
+</body>
+</html>
